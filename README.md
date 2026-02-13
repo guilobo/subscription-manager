@@ -1,61 +1,170 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<!-- README.html -->
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<h1>Recurring Billing System (Laravel + Livewire)</h1>
+
+<p>
+  A recurring billing platform built with <strong>Laravel</strong> and <strong>Livewire</strong>.
+  It allows users to register their own clients, create periodic charges, and automate billing and collections.
+  Payments are processed <strong>directly through the client’s own payment gateway</strong>, so the system does not charge any additional percentage-based usage fees.
 </p>
 
-## About Laravel
+<hr />
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<h2>Key Features</h2>
+<ul>
+  <li><strong>Client management</strong>: register and manage customers in one place.</li>
+  <li><strong>Recurring charges</strong>: configure billing cycles (weekly, monthly, yearly, etc.).</li>
+  <li><strong>Automated billing</strong>: generate and send charges automatically based on schedule.</li>
+  <li><strong>Gateway-owned processing</strong>: payments run through the client’s payment provider account.</li>
+  <li><strong>No % usage fee</strong>: only the gateway’s standard fees apply.</li>
+  <li><strong>Dashboard</strong>: track charge status (pending, paid, failed, overdue).</li>
+</ul>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<h2>How It Works</h2>
+<ol>
+  <li>User creates an account and connects (or configures) a payment gateway provider.</li>
+  <li>User registers clients and creates recurring billing plans/charges.</li>
+  <li>The system schedules billing runs and triggers charges on the defined dates.</li>
+  <li>Invoices/charges are sent automatically and payments are collected via the client’s gateway account.</li>
+</ol>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<hr />
 
-## Learning Laravel
+<h2>Tech Stack</h2>
+<ul>
+  <li><strong>Backend:</strong> Laravel</li>
+  <li><strong>UI:</strong> Livewire (SPA-like experience without heavy JS)</li>
+  <li><strong>Database:</strong> MySQL / MariaDB (or PostgreSQL)</li>
+  <li><strong>Queues:</strong> Redis / Database (recommended for billing tasks)</li>
+  <li><strong>Scheduler:</strong> Laravel Scheduler (cron) for recurring runs</li>
+</ul>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<hr />
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+<h2>Requirements</h2>
+<ul>
+  <li>PHP 8.2+</li>
+  <li>Composer</li>
+  <li>Node.js 18+ (if using Vite/build tools)</li>
+  <li>MySQL/MariaDB or PostgreSQL</li>
+  <li>Redis (optional but recommended for queues)</li>
+</ul>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<hr />
 
-## Laravel Sponsors
+<h2>Installation</h2>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+<h3>1) Clone</h3>
+<pre><code>git clone &lt;your-repo-url&gt;
+cd &lt;your-project-folder&gt;</code></pre>
 
-### Premium Partners
+<h3>2) Install Dependencies</h3>
+<pre><code>composer install</code></pre>
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+<p>If your project uses frontend assets:</p>
+<pre><code>npm install
+npm run build</code></pre>
 
-## Contributing
+<h3>3) Environment Setup</h3>
+<pre><code>cp .env.example .env
+php artisan key:generate</code></pre>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<h3>4) Configure Database</h3>
+<p>Edit <code>.env</code> and set:</p>
+<pre><code>DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_db
+DB_USERNAME=your_user
+DB_PASSWORD=your_password</code></pre>
 
-## Code of Conduct
+<h3>5) Run Migrations</h3>
+<pre><code>php artisan migrate</code></pre>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<h3>6) (Optional) Seed Data</h3>
+<pre><code>php artisan db:seed</code></pre>
 
-## Security Vulnerabilities
+<hr />
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+<h2>Running the App</h2>
 
-## License
+<h3>Development Server</h3>
+<pre><code>php artisan serve</code></pre>
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<p>Then open: <code>http://127.0.0.1:8000</code></p>
+
+<hr />
+
+<h2>Queues & Scheduler (Important for Recurring Billing)</h2>
+
+<h3>Queue Worker</h3>
+<p>Recommended so billing and webhook processing run reliably:</p>
+<pre><code>php artisan queue:work</code></pre>
+
+<h3>Scheduler (Cron)</h3>
+<p>Set up a cron job to run Laravel Scheduler every minute:</p>
+<pre><code>* * * * * cd /path-to-your-project &amp;&amp; php artisan schedule:run &gt;&gt; /dev/null 2&gt;&amp;1</code></pre>
+
+<hr />
+
+<h2>Payment Gateway Integration</h2>
+
+<p>
+  This project is designed so billing is performed directly through the <strong>client’s own gateway account</strong>.
+  The system orchestrates charge creation, scheduling, notifications, and reconciliation, but it does not add a usage fee percentage.
+</p>
+
+<ul>
+  <li>Configure gateway credentials in <code>.env</code> (provider-specific)</li>
+  <li>Set webhook endpoints (provider-specific)</li>
+  <li>Enable queue processing for webhook events</li>
+</ul>
+
+<p><em>Note:</em> Gateway setup varies by provider (Stripe, Asaas, Mercado Pago, etc.).</p>
+
+<hr />
+
+<h2>Project Structure (Suggested)</h2>
+<ul>
+  <li><code>app/Domain/Billing</code> — billing domain logic</li>
+  <li><code>app/Jobs</code> — recurring charge jobs</li>
+  <li><code>app/Http/Livewire</code> — Livewire components</li>
+  <li><code>routes/web.php</code> — UI routes</li>
+  <li><code>routes/api.php</code> — webhooks & API endpoints</li>
+</ul>
+
+<hr />
+
+<h2>Roadmap</h2>
+<ul>
+  <li>Multi-gateway support (pluggable providers)</li>
+  <li>Retry logic for failed payments</li>
+  <li>Dunning emails (reminders for overdue charges)</li>
+  <li>Multi-tenant support</li>
+  <li>Role-based access control</li>
+  <li>Invoice PDF export</li>
+</ul>
+
+<hr />
+
+<h2>Contributing</h2>
+<ol>
+  <li>Fork the repository</li>
+  <li>Create a feature branch: <code>git checkout -b feature/my-feature</code></li>
+  <li>Commit changes: <code>git commit -m "Add my feature"</code></li>
+  <li>Push: <code>git push origin feature/my-feature</code></li>
+  <li>Open a Pull Request</li>
+</ol>
+
+<hr />
+
+<h2>License</h2>
+<p>
+  Add your preferred license here (e.g., MIT, Apache-2.0, proprietary).
+</p>
+
+<hr />
+
+<h2>Contact</h2>
+<p>
+  If you want, add contact links here (website, email, Link

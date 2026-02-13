@@ -1,0 +1,61 @@
+@import 'tailwindcss';
+@plugin "daisyui";
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+
+
+/**
+    The lines above are intact.
+    The lines below were added by maryUI installer.
+*/
+
+/** daisyUI */
+@plugin "daisyui" {
+    themes:  dark --prefersdark --default, light ;
+}
+:root {
+    --logo-primary: #00A0DF;
+    --logo-secondary: #00a500;
+}
+
+@plugin "daisyui/theme" {
+    name: "dark";
+    default: true;
+    --color-primary: var(--logo-secondary);
+    --color-secondary: var(--logo-primary);
+}
+
+@plugin "daisyui/theme" {
+    name: "light";
+    default: false;
+    --color-primary: var(--logo-primary);
+    --color-secondary: var(--logo-secondary);
+}
+
+/* maryUI */
+@source "../../vendor/robsontenorio/mary/src/View/Components/**/*.php";
+
+/* Theme toggle */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/**
+* Paginator - Traditional style
+* Because Laravel defaults does not match well the design of daisyUI.
+*/
+
+.mary-table-pagination span[aria-current="page"] > span {
+    @apply bg-primary text-base-100
+}
+
+.mary-table-pagination button {
+    @apply cursor-pointer
+}

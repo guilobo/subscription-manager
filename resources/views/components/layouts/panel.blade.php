@@ -62,6 +62,7 @@
             <div class="flex space-x-4">
                 <x-menu activate-by-route>
                     <x-menu-item :title="__('menu.adm-panel')" icon="o-home" link="{{route('panel.home')}}" route="panel.home" />
+                    <x-menu-item :title="__('menu.adm-panel')" icon="o-user-group" link="{{route('panel.clients')}}" route="panel.clients" />
                 </x-menu>
             </div>
 

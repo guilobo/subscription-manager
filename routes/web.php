@@ -1,12 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Session;
 use Livewire\Livewire;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-
-
 
 
 Route::prefix(LaravelLocalization::setLocale())
@@ -27,6 +23,10 @@ Route::prefix(LaravelLocalization::setLocale())
             Route::get(LaravelLocalization::transRoute('routes.panel'),
                 \App\Livewire\Panel\HomePanel::class)
                 ->name('panel.home');
+
+            Route::get(LaravelLocalization::transRoute('routes.list-clients'),
+                \App\Livewire\Panel\Clients\ListClients::class)
+                ->name('panel.clients');
         });
 
         Route::get('login', function (){

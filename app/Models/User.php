@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -51,9 +52,16 @@ class User extends Authenticatable
         parent::boot();
 
         static::creating(function ($user) {
-            if (empty($user->role_id)) {
-                $user->role_id = Role::USER;
+
+            $hasUsers = DB::table('users')->exists();
+
+            if(!$hasUsers){
+                $user->role_id = Role::SUPER_ADM;
+            } else {
+                $user->role_id = $user->role_id ?? Role::USER;
             }
+
+
         });
     }
 

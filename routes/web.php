@@ -27,6 +27,12 @@ Route::prefix(LaravelLocalization::setLocale())
             Route::get(LaravelLocalization::transRoute('routes.list-clients'),
                 \App\Livewire\Panel\Clients\ListClients::class)
                 ->name('panel.clients');
+            Route::get(LaravelLocalization::transRoute('routes.create-client'),
+                \App\Livewire\Panel\Clients\EditClient::class)
+                ->name('panel.clients.create');
+            Route::get(LaravelLocalization::transRoute('routes.edit-client'),
+                \App\Livewire\Panel\Clients\EditClient::class)
+                ->name('panel.clients.edit');
         });
 
         Route::get('login', function (){

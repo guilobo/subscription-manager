@@ -33,6 +33,18 @@ Route::prefix(LaravelLocalization::setLocale())
             Route::get(LaravelLocalization::transRoute('routes.edit-client'),
                 \App\Livewire\Panel\Clients\EditClient::class)
                 ->name('panel.clients.edit');
+
+            Route::get(LaravelLocalization::transRoute('routes.list-contracts'),
+                \App\Livewire\Panel\Contracts\ListContracts::class)
+                ->name('panel.contracts');
+            Route::get(LaravelLocalization::transRoute('routes.create-contract'),
+                \App\Livewire\Panel\Contracts\ContractForm::class)
+                ->name('panel.contracts.create');
+            Route::get(LaravelLocalization::transRoute('routes.edit-contract'),
+                \App\Livewire\Panel\Contracts\ContractForm::class)
+                ->name('panel.contracts.edit');
+
+
         });
 
         Route::get('login', function (){

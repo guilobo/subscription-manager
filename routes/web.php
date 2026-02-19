@@ -44,6 +44,18 @@ Route::prefix(LaravelLocalization::setLocale())
                 \App\Livewire\Panel\Contracts\ContractForm::class)
                 ->name('panel.contracts.edit');
 
+            Route::get(LaravelLocalization::transRoute('routes.list-gateways'),
+                \App\Livewire\Panel\Gateways\GatewayForm::class)
+                ->name('panel.gateways');
+            Route::get(LaravelLocalization::transRoute('routes.create-gateway'),
+                \App\Livewire\Panel\Gateways\GatewayForm::class)
+                ->name('panel.gateways.create');
+            Route::get(LaravelLocalization::transRoute('routes.edit-gateway'),
+                \App\Livewire\Panel\Gateways\GatewayForm::class)
+                ->name('panel.gateways.edit');
+
+
+
 
         });
 

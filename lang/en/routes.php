@@ -9,5 +9,10 @@ return [
 
     'list-contracts' => 'panel/contracts',
     'create-contract' => 'panel/contracts/new',
-    'edit-contract' => 'panel/contracts/{clientId}/edit'
+    'edit-contract' => 'panel/contracts/{clientId}/edit',
+
+    'list-gateways' => 'panel/gateways',
+    'create-gateway' => 'panel/gateways/new',
+    'edit-gateway' => 'panel/gateways/{gateway}/edit',
+
 ];

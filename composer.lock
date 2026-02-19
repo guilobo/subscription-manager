@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb7918a9278039ec9d9ff3b93df6b08a",
+    "content-hash": "b9c10664a10567061e2033d3ba88401e",
     "packages": [
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -6996,34 +6996,33 @@
         },
         {
             "name": "laradumps/laradumps",
-            "version": "v4.5.2",
+            "version": "v5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laradumps/laradumps.git",
-                "reference": "12c5862f4cb767e78b0e80a7795c6666b4a86334"
+                "reference": "14a37ccedf2f29f324a1f80d37524cca7da680a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laradumps/laradumps/zipball/12c5862f4cb767e78b0e80a7795c6666b4a86334",
-                "reference": "12c5862f4cb767e78b0e80a7795c6666b4a86334",
+                "url": "https://api.github.com/repos/laradumps/laradumps/zipball/14a37ccedf2f29f324a1f80d37524cca7da680a2",
+                "reference": "14a37ccedf2f29f324a1f80d37524cca7da680a2",
                 "shasum": ""
             },
             "require": {
-                "illuminate/mail": "^10.0|^11.0|^12.0",
-                "illuminate/support": "^10.0|^11.0|^12.0",
-                "laradumps/laradumps-core": "^3.2.2",
-                "nunomaduro/termwind": "^1.15.1|^2.0.1",
-                "php": "^8.1"
+                "illuminate/mail": "^11.0|^12.0",
+                "illuminate/support": "^11.0|^12.0",
+                "laradumps/laradumps-core": "^4.0.3",
+                "php": "^8.2"
             },
             "require-dev": {
-                "larastan/larastan": "^2.0|^3.0",
-                "laravel/framework": "^10.0|^11.0|^12.0",
-                "laravel/pint": "^1.17.2",
-                "livewire/livewire": "^3.5.6",
+                "larastan/larastan": "^3.8",
+                "laravel/framework": "^11.0|^12.0",
+                "laravel/pint": "^1.26.0",
+                "livewire/livewire": "^3.7.1|^4.0",
                 "mockery/mockery": "^1.6.12",
-                "orchestra/testbench-core": "^8.0|^9.4|^10.0",
-                "pestphp/pest": "^4.0.0|^3.7.0|^2.35.1",
-                "symfony/var-dumper": "^6.4.0|^7.1.3"
+                "orchestra/testbench-core": "^9.4|^10.0",
+                "pestphp/pest": "^3.7.0|^4.0.0",
+                "symfony/var-dumper": "^7.1.3|^8.0"
             },
             "type": "library",
             "extra": {
@@ -7056,7 +7055,7 @@
             "homepage": "https://github.com/laradumps/laradumps",
             "support": {
                 "issues": "https://github.com/laradumps/laradumps/issues",
-                "source": "https://github.com/laradumps/laradumps/tree/v4.5.2"
+                "source": "https://github.com/laradumps/laradumps/tree/v5.1.0"
             },
             "funding": [
                 {
@@ -7064,39 +7063,41 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-09-11T09:10:01+00:00"
+            "time": "2026-02-17T17:49:22+00:00"
         },
         {
             "name": "laradumps/laradumps-core",
-            "version": "v3.2.6",
+            "version": "v4.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laradumps/laradumps-core.git",
-                "reference": "b5df14006570d16409f271db938a850f67ac78d7"
+                "reference": "28d7997a26bae46c538844e20bcd51e023389e62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laradumps/laradumps-core/zipball/b5df14006570d16409f271db938a850f67ac78d7",
-                "reference": "b5df14006570d16409f271db938a850f67ac78d7",
+                "url": "https://api.github.com/repos/laradumps/laradumps-core/zipball/28d7997a26bae46c538844e20bcd51e023389e62",
+                "reference": "28d7997a26bae46c538844e20bcd51e023389e62",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
-                "nunomaduro/termwind": "^1.15|^2.0",
-                "php": "^8.1",
-                "ramsey/uuid": "^4.7.5",
+                "php": "^8.2",
+                "ramsey/uuid": "^4.9.1",
                 "spatie/backtrace": "^1.5",
-                "symfony/console": "^5.4|^6.4|^7.0",
-                "symfony/finder": "^5.4|^6.4|^7.0",
-                "symfony/process": "^5.4|^6.4|^7.0",
-                "symfony/var-dumper": "^5.4|^6.4|^7.0",
-                "symfony/yaml": "^5.4|^6.4|^7.0"
+                "symfony/console": "^6.4|^7.0|^8.0",
+                "symfony/finder": "^6.4|^7.0|^8.0",
+                "symfony/process": "^6.4|^7.0|^8.0",
+                "symfony/var-dumper": "^6.4|^7.0|^8.0",
+                "symfony/yaml": "^6.4|^7.0|^8.0"
             },
             "require-dev": {
-                "illuminate/support": "^10.46",
-                "laravel/pint": "^1.13.7",
-                "pestphp/pest": "^2.0|^3.0",
+                "illuminate/support": "^12",
+                "laravel/pint": "^1.26.0",
+                "pestphp/pest": "^3.0|^4.0",
                 "phpstan/phpstan": "^1.10.50"
+            },
+            "suggest": {
+                "nunomaduro/termwind": "For a better terminal experience"
             },
             "bin": [
                 "bin/laradumps"
@@ -7125,7 +7126,7 @@
             "homepage": "https://github.com/laradumps/laradumps-core",
             "support": {
                 "issues": "https://github.com/laradumps/laradumps-core/issues",
-                "source": "https://github.com/laradumps/laradumps-core/tree/v3.2.6"
+                "source": "https://github.com/laradumps/laradumps-core/tree/v4.0.3"
             },
             "funding": [
                 {
@@ -7133,7 +7134,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-08-25T22:45:46+00:00"
+            "time": "2026-02-06T12:03:23+00:00"
         },
         {
             "name": "laravel/pail",

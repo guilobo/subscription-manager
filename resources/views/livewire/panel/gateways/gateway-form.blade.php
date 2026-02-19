@@ -76,14 +76,24 @@
             </div>
         </div>
 
-        <x-slot:actions>
-            <x-button label="Back" link="{{ route('panel.gateways') }}" class="btn-ghost" />
-            <x-button
-                label="{{ $this->isEdit ? 'Save Changes' : 'Create Gateway' }}"
-                wire:click="save"
-                spinner="save"
-                class="btn-primary"
-            />
-        </x-slot:actions>
+            <x-slot:actions>
+                <x-button label="Back" link="{{ route('panel.gateways') }}" class="btn-ghost" />
+
+                @if($this->isEdit)
+                    <x-button
+                        label="Delete"
+                        class="btn-error"
+                        onclick="confirm('Delete this gateway?') || event.stopImmediatePropagation()"
+                        wire:click="delete"
+                    />
+                @endif
+
+                <x-button
+                    label="{{ $this->isEdit ? 'Save Changes' : 'Create Gateway' }}"
+                    wire:click="save"
+                    spinner="save"
+                    class="btn-primary"
+                />
+            </x-slot:actions>
     </x-card>
 </div>

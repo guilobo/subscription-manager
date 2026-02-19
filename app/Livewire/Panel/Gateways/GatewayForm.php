@@ -161,6 +161,35 @@ class GatewayForm extends Component
         redirect()->route('panel.gateways.edit', $created->id);
     }
 
+    public function delete(): void
+    {
+
+        if (! $this->gateway) {
+            abort(404);
+        }
+
+        // Safety: ensure ownership
+        abort_unless($this->gateway->user_id === Auth::id(), 404);
+
+        // OPTION A (recommended): soft-delete-like behavior using status "revoked"
+        $revokedId = Status::query()
+            ->where('scope', 'gateway_connection')
+            ->where('key', 'revoked')
+            ->value('id');
+        ds($revokedId);
+        if ($revokedId) {
+            $this->gateway->update([
+                'status_id' => $revokedId,
+                'is_default' => false,
+            ]);
+        } else {
+            // OPTION B fallback: hard delete if revoked status doesn't exist
+            $this->gateway->delete();
+        }
+        session()->flash('success', 'Gateway removed successfully.');
+        redirect()->route('panel.gateways'); // your gateways list route
+    }
+
     private function maskSecret(string $value): string
     {
         $value = trim($value);

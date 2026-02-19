@@ -1,7 +1,7 @@
 <div>
 
     <x-header
-        :title="__('Contracts')"
+        :title="__('Gatways')"
         {{--        :subtitle="__('course.msg_explain_Clients')"--}}
         separator
     >
@@ -11,17 +11,17 @@
         <x-slot:actions>
             @can('access-admin-panel')
                 <x-button
-                    :label="__('New Contract')"
+                    :label="__('New Gateway')"
                     icon="o-plus"
                     class="btn-primary"
-                    :link="route('panel.contracts.create')"
+                    :link="route('panel.gateways.create')"
                 />
             @endcan
         </x-slot:actions>
     </x-header>
     <x-table
         :headers="$headers"
-        :rows="$contracts"
+        :rows="$gatways"
         with-pagination
         per-page="perPage"
         :per-page-values="[3, 5, 10]"
@@ -31,10 +31,14 @@
 
         @can('access-admin-panel')
             {{-- Special `actions` slot --}}
-            @scope('actions', $contracts)
+            @scope('cell_status', $gatways)
+        <x-status-badge :status-id="$gatways->status_id" />
+
+            @endscope
+            @scope('actions', $gatways)
             <x-mary-button
                 icon="o-pencil-square"
-                :link="route('panel.contracts.edit', $contracts->id)"
+                :link="route('panel.gateways.edit', $gatways->id)"
                 spinner
                 class="btn-sm" />
             @endscope
